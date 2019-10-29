@@ -61,34 +61,34 @@ void INTELBOX(int SW)
 	switch(SW)
 	{
 		case 1:
-				SetWindowText(INFOBOX, "[INFO] Pomyœlnie wczytano program.");
+				SetWindowText(INFOBOX, "[INFO] PomyÅ“lnie wczytano program.");
 				break;
 		case 2:
-				SetWindowText(INFOBOX, "[INFO] Pomyœlnie wys³ano plik.");
+				SetWindowText(INFOBOX, "[INFO] PomyÅ“lnie wysÂ³ano plik.");
 				break;
 		case 3:
-				SetWindowText(INFOBOX, "[ERROR] B³¹d podczas wysy³ania pliku!");
+				SetWindowText(INFOBOX, "[ERROR] BÂ³Â¹d podczas wysyÂ³ania pliku!");
 				break;
 		case 4:
 				SetWindowText(INFOBOX, "[ERROR] Brak internetu!");
 				break;
 		case 5:
-				SetWindowText(INFOBOX, "[INFO] Internet dostêpny! Wysy³anie pliku...");
+				SetWindowText(INFOBOX, "[INFO] Internet dostÃªpny! WysyÂ³anie pliku...");
 				break;
 		case 6:
-				SetWindowText(INFOBOX, "[INFO] Pomyœlnie wczytano informacje.");
+				SetWindowText(INFOBOX, "[INFO] PomyÅ“lnie wczytano informacje.");
 				break;
 		case 7:
-				SetWindowText(INFOBOX, "[INFO] Pomyœlnie dodano utwór.");
+				SetWindowText(INFOBOX, "[INFO] PomyÅ“lnie dodano utwÃ³r.");
 				break;
 		case 8:
-				SetWindowText(INFOBOX, "[INFO] Pomyœlnie zmieniono informacje.");
+				SetWindowText(INFOBOX, "[INFO] PomyÅ“lnie zmieniono informacje.");
 				break;
 		case 9:
-				SetWindowText(INFOBOX, "[INFO] Pomyœlnie usuniêto utwór/ry.");
+				SetWindowText(INFOBOX, "[INFO] PomyÅ“lnie usuniÃªto utwÃ³r/ry.");
 				break;
 		case 10:
-				SetWindowText(INFOBOX, "[ERROR] Podane ID jest za du¿e!");
+				SetWindowText(INFOBOX, "[ERROR] Podane ID jest za duÂ¿e!");
 				break;
 	}
 }
@@ -354,9 +354,9 @@ int EDIT()
 
 int ftpsend()
 {
-    char ftp[] = "mkwk018.cba.pl";
-    char user[] = "nyggabytes@krenski.cba.pl";
-    char password[] = "Papieros2015X";
+    char ftp[] = "HIDDEN";
+    char user[] = "HIDDEN";
+    char password[] = "HIDDEN";
     char localFile[] = "out.txt";
     char remoteFile[] = "/else/ytwindowsdata.txt";
     
@@ -473,7 +473,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
     wc.hIcon		 = LoadIcon(NULL, IDI_APPLICATION);
 
     if(!RegisterClassW(&wc)) {
-		MessageBox(NULL, "Nie mo¿na wczytaæ programu!","Error!",MB_ICONEXCLAMATION|MB_OK);
+		MessageBox(NULL, "Nie moÂ¿na wczytaÃ¦ programu!","Error!",MB_ICONEXCLAMATION|MB_OK);
 		return 0;
 	}
     
@@ -485,7 +485,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 				hInstance, 0);
 
 	if(hwnd == NULL) {
-		MessageBox(NULL, "Nie mo¿na stworzyæ okna!","Error!",MB_ICONEXCLAMATION|MB_OK);
+		MessageBox(NULL, "Nie moÂ¿na stworzyÃ¦ okna!","Error!",MB_ICONEXCLAMATION|MB_OK);
 		return 0;
 	}
 	
@@ -518,7 +518,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg,
       			
 			    INFO = CreateWindow(
 						"STATIC",
-						"£¹czenie z baz¹ danych...",
+						"Â£Â¹czenie z bazÂ¹ danych...",
 						WS_VISIBLE | WS_CHILD | WS_BORDER | ES_READONLY | ES_CENTER,
 						50, 50, 500, 20,
 						hwnd, NULL, NULL, NULL);
@@ -531,9 +531,9 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg,
 				
 				MYSQL mysql;
 				mysql_init(&mysql);
-				if (mysql_real_connect(&mysql, "zszbrodnica.nazwa.pl", "zszbrodnica_register", "AfGi74Koi89", "zszbrodnica_register", 3306, NULL, 0))
+				if (mysql_real_connect(&mysql, "HIDDEN", "HIDDEN", "HIDDEN", "HIDDEN", 3306, NULL, 0))
 				{
-					SetWindowText(INFO, "[INFO] Pomyœlnie po³¹czono siê z baz¹ danych.");
+					SetWindowText(INFO, "[INFO] PomyÅ“lnie poÂ³Â¹czono siÃª z bazÂ¹ danych.");
 					mysql_select_db(&mysql, "zszbrodnica_register");
 					mysql_query(&mysql, "SELECT * FROM PASSWORD WHERE PASSWORD.ID = 1");
 					idZapytania = mysql_store_result(&mysql);
@@ -576,7 +576,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg,
 				{
 					string VEROUT = VERSIONGUI + " - NULL";
 					SetWindowText(VERSION, VEROUT.c_str());
-					SetWindowText(INFO, "[ERROR] Nie mo¿na po³aczyæ siê z baz¹ danych!");
+					SetWindowText(INFO, "[ERROR] Nie moÂ¿na poÂ³aczyÃ¦ siÃª z bazÂ¹ danych!");
 				}
 			}
 
@@ -587,7 +587,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg,
 					
 				case SHOW_HELP:
 					{
-						MessageBox(hwnd, "INFORMACJE - DAMIAN KREÑSKI - EDITPAGEGUI\nCo czego wymaga:\n USUÑ: ID's(ODZIELONE: ',' BEZ SPACJI);\n EDYTUJ: NAZWA/LINK chocia¿ 1 wypelnione poprawnie, ID's(TYLKO JEDNO, SAMA CYFRA BEZ SPACJI i ',');\n WCZYTAJ: ID's(TYLKO JEDNO, SAMA CYFRA BEZ SPACJI i ',');\n DODAJ: LINK/NAZWA oba poprawnie uzupe³nione.\n\n NAZWA - ci¹g znaków;\n LINK - standardowy link, nie skrócony, bez zbêdnych funkcji w linku.\n\n KLAWISZE FUNKCYJNE: \"X\" Przy:\n LINK - otwieraj¹ podgl¹d,\n NAME - wyszukuj¹ podan¹ fraze w google.", "INFO - EDITPAGE", MB_OK | MB_TASKMODAL);
+						MessageBox(hwnd, "INFORMACJE - DAMIAN KREÃ‘SKI - EDITPAGEGUI\nCo czego wymaga:\n USUÃ‘: ID's(ODZIELONE: ',' BEZ SPACJI);\n EDYTUJ: NAZWA/LINK chociaÂ¿ 1 wypelnione poprawnie, ID's(TYLKO JEDNO, SAMA CYFRA BEZ SPACJI i ',');\n WCZYTAJ: ID's(TYLKO JEDNO, SAMA CYFRA BEZ SPACJI i ',');\n DODAJ: LINK/NAZWA oba poprawnie uzupeÂ³nione.\n\n NAZWA - ciÂ¹g znakÃ³w;\n LINK - standardowy link, nie skrÃ³cony, bez zbÃªdnych funkcji w linku.\n\n KLAWISZE FUNKCYJNE: \"X\" Przy:\n LINK - otwierajÂ¹ podglÂ¹d,\n NAME - wyszukujÂ¹ podanÂ¹ fraze w google.", "INFO - EDITPAGE", MB_OK | MB_TASKMODAL);
 						break;
 					}
 				
@@ -627,7 +627,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg,
 							RELOADTMP();
 							SHOW();
 						} else {
-							MessageBox(hwnd, "POLA: LINK, NAME. Nie mog¹ byæ puste!", "ERROR:", MB_OK | MB_TASKMODAL);
+							MessageBox(hwnd, "POLA: LINK, NAME. Nie mogÂ¹ byÃ¦ puste!", "ERROR:", MB_OK | MB_TASKMODAL);
 						}
 						break;
 					}
@@ -640,7 +640,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg,
 							RELOADTMP();
 							SHOW();
 						} else {
-							MessageBox(hwnd, "W liœcie ID podano nie poprawne znaki, poprawne: '0-9' i ','.", "ERROR:", MB_OK | MB_TASKMODAL);
+							MessageBox(hwnd, "W liÅ“cie ID podano nie poprawne znaki, poprawne: '0-9' i ','.", "ERROR:", MB_OK | MB_TASKMODAL);
 						}
 						break;
 					}
@@ -653,7 +653,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg,
 							RELOADTMP();
 							SHOW();
 						} else {
-							MessageBox(hwnd, "ID mo¿e byæ tylko jedno i/lub podano b³êdne znaki, poprawne: '0-9' i ','.", "ERROR:", MB_OK | MB_TASKMODAL);
+							MessageBox(hwnd, "ID moÂ¿e byÃ¦ tylko jedno i/lub podano bÂ³Ãªdne znaki, poprawne: '0-9' i ','.", "ERROR:", MB_OK | MB_TASKMODAL);
 						}
 						break;
 					}
@@ -664,7 +664,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg,
 						{
 							READ();
 						} else {
-							MessageBox(hwnd, "ID mo¿e byæ tylko jedno lub podano b³êdne znaki, poprawne: '0-9'.", "ERROR:", MB_OK | MB_TASKMODAL);
+							MessageBox(hwnd, "ID moÂ¿e byÃ¦ tylko jedno lub podano bÂ³Ãªdne znaki, poprawne: '0-9'.", "ERROR:", MB_OK | MB_TASKMODAL);
 						}
 						break;
 					}
@@ -685,7 +685,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg,
 							GetWindowText(LINK, &link[0], 255);
 							ShellExecute(NULL, NULL, (((string)link).c_str()), NULL, NULL, SW_SHOW);
 						} else {
-							MessageBox(hwnd, "POLE: LINK, Nie mo¿e byæ puste!", "ERROR:", MB_OK | MB_TASKMODAL);
+							MessageBox(hwnd, "POLE: LINK, Nie moÂ¿e byÃ¦ puste!", "ERROR:", MB_OK | MB_TASKMODAL);
 						}
 						break;
 					}
@@ -707,7 +707,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg,
 							
 							ShellExecute(NULL, NULL, (((string)OUTNAME).c_str()), NULL, NULL, SW_SHOW);
 						} else {
-							MessageBox(hwnd, "POLE: NAME, Nie mo¿e byæ puste!", "ERROR:", MB_OK | MB_TASKMODAL);
+							MessageBox(hwnd, "POLE: NAME, Nie moÂ¿e byÃ¦ puste!", "ERROR:", MB_OK | MB_TASKMODAL);
 						}
 						break;
 					}
@@ -736,7 +736,7 @@ void PassCHECK()
 	
 	if ((string)name != password)
 	{
-		MessageBox(hwnd, "B³êdne has³o!", "ERROR", MB_OK | MB_TASKMODAL);
+		MessageBox(hwnd, "BÂ³Ãªdne hasÂ³o!", "ERROR", MB_OK | MB_TASKMODAL);
 	} else {
 		startup();
 	}
@@ -777,7 +777,7 @@ void startup()
 			hwnd, (HMENU) ADD_ID, NULL, NULL);
 	CreateWindow(
 			"BUTTON",
-			"USUÑ",
+			"USUÃ‘",
 			WS_VISIBLE | WS_CHILD | WS_BORDER,
 			138, 205, 152, 20,
 			hwnd, (HMENU) REMOVE_ID, NULL, NULL);
@@ -795,7 +795,7 @@ void startup()
 			hwnd, (HMENU) READ_ID, NULL, NULL);
 	CreateWindow(
 			"BUTTON",
-			"WYŒLIJ",
+			"WYÅ’LIJ",
 			WS_VISIBLE | WS_CHILD | WS_BORDER,
 			5, 265, 585, 20,
 			hwnd, (HMENU) FILE_SEND, NULL, NULL);
